@@ -1,0 +1,39 @@
+# Python
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# VS Code
+
+.vscode/
+
+# Environment
+
+.env
+
+# Node
+
+node_modules/
+
+# Build
+
+dist/
+
+# Logs
+
+*.log
+
+# MySQL
+
+*.sql.bak
+
+# Power BI
+
+*.tmp
+
+# OS
+
+.DS_Store
+Thumbs.db
