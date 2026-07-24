@@ -68,3 +68,5 @@ Created Power BI dashboards to track inventory health, revenue trends, supplier 
 Implemented machine learning–based demand forecasting and an AI-powered natural language to SQL query assistant for business insights.
 Applied database optimization techniques including normalized schema design, SQL views, stored procedures, triggers, and advanced analytical SQL queries.
 
+Yes Sir, I developed a layered backend using FastAPI, SQLAlchemy and MySQL with complete CRUD operations.
+

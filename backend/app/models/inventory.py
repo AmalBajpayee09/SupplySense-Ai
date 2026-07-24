@@ -1,37 +1,49 @@
 from sqlalchemy import Column
 from sqlalchemy import BigInteger
 from sqlalchemy import Integer
-from sqlalchemy import ForeignKey
+from sqlalchemy import Date
 
 from app.database.base import Base
 
 
 class Inventory(Base):
 
-    __tablename__="inventory"
+    __tablename__ = "inventory"
 
-    inventory_id=Column(
+    inventory_id = Column(
         BigInteger,
-        primary_key=True
+        primary_key=True,
+        index=True
     )
 
-    product_id=Column(
+    product_id = Column(
         BigInteger,
-        ForeignKey("products.product_id")
+        nullable=False
     )
 
-    warehouse_id=Column(
+    warehouse_id = Column(
         BigInteger,
-        ForeignKey("warehouses.warehouse_id")
+        nullable=False
     )
 
-    supplier_id=Column(
+    supplier_id = Column(
         BigInteger,
-        ForeignKey("suppliers.supplier_id")
+        nullable=False
     )
 
-    current_stock=Column(Integer)
+    current_stock = Column(
+        Integer,
+        nullable=False
+    )
 
-    reserved_stock=Column(Integer)
+    reserved_stock = Column(
+        Integer,
+        nullable=False
+    )
 
-    reorder_level=Column(Integer)
+    reorder_level = Column(
+        Integer,
+        nullable=False
+    )
+
+    last_restocked = Column(Date)
