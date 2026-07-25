@@ -4,6 +4,7 @@ from fastapi import FastAPI
 
 from app.api.products import router as product_router
 from app.api.inventory import router as inventory_router
+from app.api.dashboard import router as dashboard_router
 
 from app.database.db import test_connection
 
@@ -24,7 +25,7 @@ app = FastAPI(
 # Register Routers
 app.include_router(product_router)
 app.include_router(inventory_router)
-
+app.include_router(dashboard_router)
 
 @app.get("/")
 def home():
