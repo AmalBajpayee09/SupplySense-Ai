@@ -7,7 +7,8 @@ from app.api.inventory import router as inventory_router
 from app.api.dashboard import router as dashboard_router
 
 from app.database.db import test_connection
-
+from app.api.ai import router as ai_router
+from app.api.forecast import router as forecast_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -26,6 +27,8 @@ app = FastAPI(
 app.include_router(product_router)
 app.include_router(inventory_router)
 app.include_router(dashboard_router)
+app.include_router(ai_router)
+app.include_router(forecast_router)
 
 @app.get("/")
 def home():
