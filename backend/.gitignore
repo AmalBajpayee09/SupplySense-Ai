@@ -1,12 +1,27 @@
-venv/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
+# Virtual Environment
+venv/
+.env/
+
+# Environment Variables
 .env
 
-.idea/
+# VS Code
 .vscode/
 
-*.log
+# PyCharm
+.idea/
 
+# Database
+*.db
+
+
+
+# OS
 .DS_Store
+Thumbs.db

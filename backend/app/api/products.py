@@ -3,6 +3,13 @@ from sqlalchemy.orm import Session
 
 from app.database.db import get_db
 
+from app.dependencies.auth import (
+    require_admin,
+    require_manager
+)
+
+from app.models.user import User
+
 from app.schemas.product import (
     ProductCreate,
     ProductUpdate,
@@ -22,7 +29,8 @@ router = APIRouter(
     response_model=list[ProductResponse]
 )
 def get_products(
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_manager)
 ):
     return fetch_products(db)
 
@@ -33,7 +41,8 @@ def get_products(
 )
 def get_product(
     product_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_manager)
 ):
 
     product = fetch_product(
@@ -58,8 +67,10 @@ def get_product(
 )
 def create_product_api(
     product: ProductCreate,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_manager)
 ):
+
     return add_product(
         db,
         product
@@ -73,7 +84,8 @@ def create_product_api(
 def update_product_api(
     product_id: int,
     product: ProductUpdate,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_manager)
 ):
 
     updated = edit_product(
@@ -92,10 +104,13 @@ def update_product_api(
     return updated
 
 
-@router.delete("/{product_id}")
+@router.delete(
+    "/{product_id}"
+)
 def delete_product_api(
     product_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin)
 ):
 
     deleted = remove_product(

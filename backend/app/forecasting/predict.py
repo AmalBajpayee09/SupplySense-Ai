@@ -56,20 +56,22 @@ def predict_sales(
     return round(float(prediction[0]), 2)
 
 
-print(
+if __name__ == "__main__":
 
-    predict_sales(
+    print(
 
-        product_id=1,
+        predict_sales(
 
-        year=2026,
+            product_id=1,
 
-        month=1,
+            year=2026,
 
-        day=15,
+            month=1,
 
-        weekday=3
+            day=15,
+
+            weekday=3
+
+        )
 
     )
-
-)

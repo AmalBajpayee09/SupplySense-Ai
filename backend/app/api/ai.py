@@ -4,15 +4,20 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 
 from app.database.db import get_db
-from app.services.ai_service import ask_ai
+
+from app.dependencies.auth import require_analyst
+from app.models.user import User
+
+from app.services.ai_service import (
+    ask_ai,
+    generate_sql
+)
 
 from app.schemas.ai import (
     AIQueryRequest,
     AIQueryResponse,
     AIResultResponse
 )
-
-from app.services.ai_service import generate_sql
 
 router = APIRouter(
 
@@ -30,8 +35,10 @@ router = APIRouter(
     response_model=AIQueryResponse
 
 )
-
-def ai_query(request: AIQueryRequest):
+def ai_query(
+    request: AIQueryRequest,
+    current_user: User = Depends(require_analyst)
+):
 
     sql = generate_sql(request.question)
 
@@ -40,17 +47,19 @@ def ai_query(request: AIQueryRequest):
         "sql": sql
 
     }
-    
+
+
 @router.post(
     "/ask",
     response_model=AIResultResponse
 )
 def ask_ai_endpoint(
     request: AIQueryRequest,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_analyst)
 ):
 
     return ask_ai(
         request.question,
         db
-    )    
+    )

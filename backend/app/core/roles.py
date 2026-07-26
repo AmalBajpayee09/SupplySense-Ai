@@ -1,0 +1,9 @@
+class Roles:
+
+    ADMIN = "ADMIN"
+
+    MANAGER = "MANAGER"
+
+    ANALYST = "ANALYST"
+
+    WAREHOUSE_STAFF = "WAREHOUSE_STAFF"

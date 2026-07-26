@@ -6,6 +6,13 @@ from sqlalchemy.orm import Session
 
 from app.database.db import get_db
 
+from app.dependencies.auth import (
+    require_admin,
+    require_warehouse
+)
+
+from app.models.user import User
+
 from app.schemas.inventory import *
 
 from app.services.inventory_service import *
@@ -21,7 +28,8 @@ router = APIRouter(
     response_model=list[InventoryResponse]
 )
 def get_inventory(
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_warehouse)
 ):
 
     return fetch_inventory(db)
@@ -33,7 +41,8 @@ def get_inventory(
 )
 def get_inventory_by_id_api(
     inventory_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_warehouse)
 ):
 
     inventory = fetch_inventory_by_id(
@@ -58,7 +67,8 @@ def get_inventory_by_id_api(
 )
 def create_inventory_api(
     inventory: InventoryCreate,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_warehouse)
 ):
 
     return add_inventory(
@@ -74,7 +84,8 @@ def create_inventory_api(
 def update_inventory_api(
     inventory_id: int,
     inventory: InventoryUpdate,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_warehouse)
 ):
 
     updated = edit_inventory(
@@ -98,7 +109,8 @@ def update_inventory_api(
 )
 def delete_inventory_api(
     inventory_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin)
 ):
 
     deleted = remove_inventory(

@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 
 from app.core.config import settings
+from sqlalchemy.orm import declarative_base
 
 DATABASE_URL = (
     f"mysql+pymysql://{settings.DB_USER}:"
@@ -23,6 +24,8 @@ SessionLocal = sessionmaker(
     autoflush=False,
     autocommit=False
 )
+
+Base = declarative_base()
 
 
 def get_db():
