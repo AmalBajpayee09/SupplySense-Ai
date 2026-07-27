@@ -10,7 +10,8 @@ class DashboardSummary(BaseModel):
     low_stock_products: int
 
     total_suppliers: int
-    
+
+
 class LowStockProduct(BaseModel):
 
     product_name: str
@@ -18,11 +19,13 @@ class LowStockProduct(BaseModel):
     current_stock: int
 
     reorder_level: int
-    
+
+
 class InventoryValue(BaseModel):
 
-    total_inventory_value: float   
-    
+    total_inventory_value: float
+
+
 class CategorySummary(BaseModel):
 
     category_name: str
@@ -31,9 +34,9 @@ class CategorySummary(BaseModel):
 
     total_stock: int
 
-    inventory_value: float   
-    
-    
+    inventory_value: float
+
+
 class SupplierPerformance(BaseModel):
 
     supplier_name: str
@@ -42,4 +45,21 @@ class SupplierPerformance(BaseModel):
 
     total_stock: int
 
-    inventory_value: float      
+    inventory_value: float
+
+
+# -----------------------------
+# NEW COMBINED DASHBOARD SCHEMA
+# -----------------------------
+
+class DashboardResponse(BaseModel):
+
+    summary: DashboardSummary
+
+    inventory_value: InventoryValue
+
+    low_stock: list[LowStockProduct]
+
+    category_summary: list[CategorySummary]
+
+    supplier_performance: list[SupplierPerformance]

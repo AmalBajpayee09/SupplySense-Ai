@@ -70,3 +70,12 @@ Applied database optimization techniques including normalized schema design, SQL
 
 Yes Sir, I developed a layered backend using FastAPI, SQLAlchemy and MySQL with complete CRUD operations.
 
+We implemented a SQL validation layer that only allows read-only SELECT queries before execution."
+
+"I generated a realistic historical dataset based on my inventory management system and trained the forecasting model on that.
+
+"Linear Regression ki jagah Random Forest kyun?"
+
+Tu confidently bol sakta hai:
+
+"Demand data often has non-linear patterns due to weekends, festivals, and product-specific behavior. Random Forest captures these relationships better than Linear Regression and also requires less manual feature engineering."

@@ -7,6 +7,7 @@ from app.database.db import get_db
 
 from app.schemas.dashboard import (
     DashboardSummary,
+    DashboardResponse,
     LowStockProduct,
     InventoryValue,
     CategorySummary,
@@ -18,13 +19,29 @@ from app.services.dashboard_service import (
     fetch_low_stock,
     fetch_inventory_value,
     fetch_category_summary,
-    fetch_supplier_performance
+    fetch_supplier_performance,
+    fetch_complete_dashboard
 )
 
 router = APIRouter(
     prefix="/dashboard",
     tags=["Dashboard"]
 )
+
+
+# -----------------------------
+# SINGLE DASHBOARD ENDPOINT
+# -----------------------------
+
+@router.get(
+    "/",
+    response_model=DashboardResponse
+)
+def complete_dashboard(
+    db: Session = Depends(get_db)
+):
+
+    return fetch_complete_dashboard(db)
 
 
 @router.get(
@@ -48,6 +65,7 @@ def low_stock_products(
 
     return fetch_low_stock(db)
 
+
 @router.get(
     "/inventory-value",
     response_model=InventoryValue
@@ -58,6 +76,7 @@ def inventory_value(
 
     return fetch_inventory_value(db)
 
+
 @router.get(
     "/category-summary",
     response_model=list[CategorySummary]
@@ -67,6 +86,7 @@ def category_summary(
 ):
 
     return fetch_category_summary(db)
+
 
 @router.get(
     "/supplier-performance",
