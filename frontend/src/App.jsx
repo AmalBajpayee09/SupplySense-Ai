@@ -10,7 +10,7 @@ import Products from "./pages/Products";
 import Inventory from "./pages/Inventory";
 import Forecast from "./pages/Forecast";
 import AI from "./pages/AI";
-
+import PowerBI from "./pages/PowerBI";
 function App() {
 
   return (
@@ -69,6 +69,10 @@ function App() {
         />
 
       </Route>
+      <Route
+        path="/powerbi"
+        element={<PowerBI />}
+      />
 
       <Route
         path="*"

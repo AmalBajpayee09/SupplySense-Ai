@@ -14,7 +14,7 @@ import CategoryRoundedIcon from "@mui/icons-material/CategoryRounded";
 import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
 import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
-
+import AnalyticsIcon from "@mui/icons-material/Analytics";
 import { NavLink } from "react-router-dom";
 
 import Logo from "./Logo";
@@ -51,6 +51,12 @@ const menuItems = [
         text: "AI Assistant",
         path: "/ai",
         icon: <SmartToyRoundedIcon />
+    },
+
+    {
+        text: "Power BI",
+        icon: <AnalyticsIcon />,
+        path: "/powerbi"
     }
 
 ];
