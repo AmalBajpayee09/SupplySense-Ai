@@ -67,7 +67,7 @@ The AI Assistant converts the question into SQL, executes it securely and return
 
 ## 📦 Products
 
-<img src="docs/screenshots/product.jpeg" width="90%">
+<img src="docs/screenshots/products.jpeg" width="90%">
 
 ---
 
