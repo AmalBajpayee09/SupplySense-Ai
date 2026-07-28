@@ -568,65 +568,6 @@ React Frontend
 
 ---
 
-# 📷 Application Preview
-
-> Replace these placeholders with actual screenshots.
-
-## 🔐 Login
-
-```
-docs/screenshots/login.png
-```
-
----
-
-## 📊 Dashboard
-
-```
-docs/screenshots/dashboard.png
-```
-
----
-
-## 📦 Products
-
-```
-docs/screenshots/products.png
-```
-
----
-
-## 🏬 Inventory
-
-```
-docs/screenshots/inventory.png
-```
-
----
-
-## 📈 Forecast
-
-```
-docs/screenshots/forecast.png
-```
-
----
-
-## 🤖 AI Assistant
-
-```
-docs/screenshots/ai-assistant.png
-```
-
----
-
-## 📊 Power BI
-
-```
-docs/screenshots/powerbi.png
-```
-
----
 
 # 💡 Key Engineering Decisions
 
@@ -846,10 +787,7 @@ Indian Institute of Information Technology, Gwalior
 
 ---
 
-## Connect
 
-- GitHub: *Add your GitHub profile*
-- LinkedIn: *Add your LinkedIn profile*
 
 ---
 
