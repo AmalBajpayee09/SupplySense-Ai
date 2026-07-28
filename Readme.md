@@ -55,7 +55,7 @@ The AI Assistant converts the question into SQL, executes it securely and return
 
 ## 🔐 Authentication
 
-<img src="docs/screenshots/login.png" width="90%">
+<img src="docs/screenshots/login.jpeg" width="90%">
 
 ---
 
